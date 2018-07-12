@@ -20,18 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1vba&*y0560s)*-g0k5@)e6uo*pqek*hput)!f*!0wx8vt3n)p'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'speechcorpus.gd.zp.ua',
-    '80.211.168.226',
-    '80.211.168.226:8000',
-    'www.speech.cloud',
-    'speech.cloud',
-]
+ALLOWED_HOSTS = [*]
 
 
 # Application definition
@@ -84,9 +78,9 @@ WSGI_APPLICATION = 'SCorpus.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'speech',
-            'USER': 'lppp',
-            'PASSWORD': '2563256312We12',
+            'NAME': '',
+            'USER': '',
+            'PASSWORD': '',
             'HOST': 'localhost',
             'PORT': '',
                     }
