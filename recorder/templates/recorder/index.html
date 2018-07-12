@@ -1,0 +1,98 @@
+{% extends 'recorder/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>Main page</title>
+{% endblock %}
+{% block javascript %}
+    <script>
+    function saveCookie() {
+        var value = document.forms["first_form"].elements["surname"].value;
+        document.cookie = "surname=" + value.toString();
+    };
+    </script>
+{% endblock %}
+{% block body %}
+
+
+    <div class="jumbotron text-center" style="background-color: transparent;">
+        <h1 style="font-family: 'Josefin Sans', sans-serif;">ZNU speech corpus</h1>
+        <p style="font-family: 'Josefin Sans', sans-serif;">Collecting Ukrainian Corpus of Non-native English Speech</p>
+
+    <div class="container" style="font-family: 'Josefin Sans', sans-serif;">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-xl-9 col-lg-9 form-control" style="background-color: #d3dece;">
+      <pre class="text-left" style="font-family: 'Exo 2', sans-serif;">
+                                     ЗАПОРІЗЬКИЙ НАЦІРОНАЛЬНИЙ УНІВЕРСИТЕТ
+                                             ФАКУЛЬТЕТ МАТЕМАТИКИ
+
+                                    Згода на прийняття участі в дослідженні
+
+Тема роботи:	Збірник рідної (Української) та не рідної (Англійської) вимов
+                    з урахуванням індивідуальності вимови
+Дослідники:
+    Ім’я:	Павел Прохоренко	Кафедра:	Комп’ютерні науки
+    Ім’я:	Наталя Кеберле	Кафедра:	Комп’ютерні науки
+    Ім’я	Геннадій Добровольский	Кафедра:	Комп’ютерні науки
+
+Введення
+
+    •	Вам буде запропоновано участь в дослідженні індивідуальності вимови людей,
+            у яких англійська мова не є рідною.
+    •	Ви були обрані як можливий учасник, бо попередньо вивчали або використовували англійську мову.
+    •	Ми просимо Вас прочитати цю форму та відповісти на питання,
+            які прослідують далі, якщо Ви згодитесь на участь у дослідженні.
+
+Цілі цього дослідження
+
+    •	Ціллю цього дослідженні є збір зразків ізольованих звуків і цілих параграфів,
+            вимовлених  на рідній та на англійській мові.
+            Це дослідження зможе допомогти у визначенні фонетичних особливостей
+            різних індивідуальних особливостей  вимови,
+            які можуть бути причиною помилок при вивченні англійської мови.
+    •	Зрештою, це дослідження може бути опубліковано як книга,
+            для представлення на конференції та перетворене в програму,
+            яка зможе допомагати людям вивчати цільову мову без акценту,
+            покращувати вміння говорити на цій мові та краще сприйматися іншими людьми,
+            які говорять на цій мові, а також відчувати себе більш впевнено в інтернаціональному спілкуванні.
+
+                                    Описання процедури дослідження
+
+Якщо Ви згодитесь на участь у дослідженні, то Вас попросять зробити наступне:
+    •	Заповнити форму для опитування;
+    •	Прочитати текст на рідній мові;
+    •	Прочитати текст на англійській мові;
+
+                            Ризики/Незручності зв’язані з участю в дослідженні
+
+    •	Дослідження не має видимих ( чи передбачуваних ) ризиків/незручностей.
+
+
+                                            Конфіденційність
+
+    •	Ми не включаємо жодної інформації в жодному опублікованому звіті, що зможе Вас ідентифікувати.
+                                                Згода
+    •	Написання вашого прізвища нижче свідчить, що Ви вирішили бути учасником дослідження як доброволець
+            та прочитали і розумієте інформацію надану вище
+
+      </pre>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-3 col-xl-3 mt-3 form-group">
+        <form method="post" onsubmit="{% url 'fill_form' %}" name="first_form" class="form-control radio-inline text-left" style="background-color: #d3dece;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-outline-primary" onclick="{% url 'fill_form' %}, saveCookie()">
+                Next
+            </button>
+            <p class="mt-2" style="font-family: 'Josefin Sans', sans-serif;">Printing in your surname below indicates that you have decided to volunteer as a research
+participant for this study, and that you have read and understood the information provided
+in the consent</p>
+        </form>
+    </div>
+  </div>
+</div>
+    </div>
+
+
+
+
+{% endblock %}
